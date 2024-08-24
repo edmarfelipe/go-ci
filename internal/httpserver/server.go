@@ -14,6 +14,7 @@ type HTTPServer struct {
 func New(cfg *env.Env) *HTTPServer {
 	router := http.NewServeMux()
 	router.HandleFunc("GET /health", HealthHandler)
+	router.HandleFunc("GET /hello", HelloHandler)
 
 	return &HTTPServer{
 		srv: &http.Server{
