@@ -21,7 +21,7 @@ func HelloHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	if _, ok := msgs[lang]; !ok {
-		WriteJSON(w, http.StatusBadRequest, ErrorResponse{Error: "invalid language"})
+		WriteBadRequest(w, "invalid language")
 		return
 	}
 
