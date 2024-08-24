@@ -20,9 +20,9 @@ func run() error {
 	slog.SetDefault(slog.New(slog.NewJSONHandler(os.Stdout, nil)))
 
 	cfg, err := env.Load()
-	if err != nil {
-		return fmt.Errorf("error loading configs: %w", err)
-	}
+	// if err != nil {
+	// 	return fmt.Errorf("error loading configs: %w", err)
+	// }
 
 	err = httpserver.New(cfg).Start()
 	if err != nil {
