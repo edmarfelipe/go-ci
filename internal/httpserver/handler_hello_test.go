@@ -30,4 +30,23 @@ func TestHelloHandler(t *testing.T) {
 			t.Fatalf("expected message %s, got %s", "Hello", hello.Message)
 		}
 	})
+
+	t.Run("Should return a hello response with language set to pt", func(t *testing.T) {
+		resp, err := http.Get(srv.URL + "?lang=pt")
+		if err != nil {
+			t.Fatalf("expected no error, got %v", err)
+		}
+
+		if resp.StatusCode != http.StatusOK {
+			t.Fatalf("expected status code %d, got %d", http.StatusOK, resp.StatusCode)
+		}
+		defer resp.Body.Close()
+
+		var hello httpserver.HelloResponse
+		json.NewDecoder(resp.Body).Decode(&hello)
+
+		if hello.Message != "Olá" {
+			t.Fatalf("expected message %s, got %s", "Olá", hello.Message)
+		}
+	})
 }
