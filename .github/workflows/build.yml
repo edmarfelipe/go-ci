@@ -1,4 +1,4 @@
-name: Go
+name: Continuous Integration
 
 env:
   GO_VERSION: "1.23"
@@ -58,6 +58,14 @@ jobs:
         with:
           name: code-coverage
           path: coverage.txt
+
+      - name: check test coverage
+        uses: vladopajic/go-test-coverage@v2
+        with:
+          profile: coverage.txt
+          threshold-file: 0
+          threshold-package: 0
+          threshold-total: 30
 
   coverage:
     name: "Code coverage report"
