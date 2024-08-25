@@ -1,6 +1,5 @@
 # Golang CI/CD with Github Actions
 
-[![coverage](https://raw.githubusercontent.com/edmarfelipe/go-ci/badges/.badges/main/coverage.svg)](/.github/.testcoverage.yml)
 
 This repository is a simple example of how to use Github Actions to build and test a Golang application.
 
