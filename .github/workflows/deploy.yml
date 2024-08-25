@@ -1,0 +1,25 @@
+name: Deploy
+
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        required: true
+      use-emoji:
+        type: boolean
+        description: Include 🎉🤣 emojis
+      environment:
+        type: choice
+        default: dev
+        options:
+          - dev
+          - staging
+          - production
+
+jobs:
+  greet:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Send greeting
+      run: echo "Name:${{ github.event.inputs.name }} - UserEmoji:${{ github.event.inputs.use-emoji }} ENV:${{ github.event.inputs.environment }}"
