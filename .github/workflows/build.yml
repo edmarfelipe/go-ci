@@ -57,7 +57,7 @@ jobs:
       - name: Set up tools
         run: |
           go install github.com/gotesttools/gotestfmt/v2/cmd/gotestfmt@latest
-          go get github.com/boumenot/gocover-cobertura
+          go get github.com/boumenot/gocover-cobertura && go install github.com/boumenot/gocover-cobertura
 
       - name: Tests
         run: |
